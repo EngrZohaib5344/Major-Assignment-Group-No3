@@ -82,13 +82,15 @@ public:
 
     Hospital() : doctorCount(0), patientCount(0), appointmentCount(0) {}
 
-    void registerDoctor(Doctor& doctor) {
-        if (doctorCount < 10) {
-            doctors[doctorCount++] = doctor;
-        } else {
-            cout << "Cannot register more doctors. Limit reached.\n";
-        }
+    void registerDoctor(const Doctor& doctor) {
+    if (doctorCount < 10) {
+        doctors[doctorCount] = doctor;
+        doctorCount++;
+    } else {
+        cout << "Cannot register more doctors. Limit reached.\n";
     }
+}
+
 
     void registerPatient(const Patient& patient) {
         if (patientCount < 10) {
