@@ -109,14 +109,17 @@ public:
     }
 
     void displayAppointments() const {
-        cout << "Appointments:\n";
-        for (int i = 0; i < appointmentCount; ++i) {
-            cout << "Date: " << appointments[i].date << "\n";
-            cout << "Patient: " << appointments[i].patient.name << "\n";
-            cout << "Doctor: " << appointments[i].doctor.name << " (Specialty: " << appointments[i].doctor.specialty << ")\n";
-            cout << "------------------------\n";
-        }
+    cout << "\n===== APPOINTMENTS LIST =====\n";
+    for (int i = 0; i < appointmentCount; ++i) {
+        cout << "\n--- Appointment #" << (i + 1) << " ---\n";
+        cout << "📅 Date       : " << appointments[i].date << "\n";
+        cout << "👤 Patient    : " << appointments[i].patient.name << "\n";
+        cout << "🩺 Doctor     : " << appointments[i].doctor.name << "\n";
+        cout << "   Specialty  : " << appointments[i].doctor.specialty << "\n";
     }
+    cout << "\n=============================\n";
+}
+
 
     int countAvailableWards() const {
         return ward.getFreeWards();
