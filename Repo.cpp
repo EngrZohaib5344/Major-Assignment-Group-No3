@@ -98,7 +98,7 @@ public:
         }
     }
 
-    void scheduleAppointment( Patient& patient, Doctor& doctor,string& date) {
+    void Appointmentschedule( Patient& patient, Doctor& doctor,string& date) {
         if (appointmentCount < 10) {
             appointments[appointmentCount++] = Appointment(patient, doctor, date);
         } else {
@@ -136,16 +136,16 @@ public:
         }
     }
 
-    void dischargePatientFromWard(Patient& patient) {
+    void dischargePatientFromWardToNEw(Patient& patient) {
         if (patient.admitted) {
             ward.dischargePatient();
             patient.admitted = false;
             cout << "Patient " << patient.name << " discharged from Ward " << patient.wardNumber << ".\n";
             patient.wardNumber = -1;
         } else {
-            cout << "Patient " << patient.name << " is not admitted to any ward.\n";
+            cout << "Patient the patient is discharge form now  " << patient.name << " is not admitted to any ward.\n";
         }
-    }
+    } 
 
     void displayAvailableDoctors(string& shift,string& day) {
         cout << "\nAVAILABLE DOCTERS:\n";
