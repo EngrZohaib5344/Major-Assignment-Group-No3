@@ -169,9 +169,13 @@ public:
             }
         }
     }
-    void prescribeMedicine(Patient& patient,  std::string& medicine) {
-        cout << "Prescribing " << medicine << " to patient " << patient.name << ".\n";
-    }
+    void prescribeMedicine(Patient& patient, std::string& medicine) {
+    cout << "\n=== Prescription Issued ===\n";
+    cout << "Patient Name : " << patient.name << "\n";
+    cout << "Medicine     : " << medicine << "\n";
+    cout << "===========================\n";
+}
+
     void getWardInfo() const {
         cout << "Total Wards: " << ward.total << "\n";
         cout << "Reserved Wards: " << ward.reserved << "\n";
