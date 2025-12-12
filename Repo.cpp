@@ -57,15 +57,15 @@ public:
     }
 };
 
-class Appointment {
+class Appointment_doctor {
 public:
     Patient patient;
     Doctor doctor;
     string date;
 
-    Appointment() {}
+    Appointment_doctor() {}
 
-    Appointment( Patient& p,  Doctor& d, string& dt)
+    Appointment_doctor( Patient& p,  Doctor& d, string& dt)
         : patient(p), doctor(d), date(dt) {}
 };
 
@@ -73,7 +73,7 @@ class Hospital {
 public:
     Doctor doctors[10];
     Patient patients[10];
-    Appointment appointments[10];
+    Appointment_doctor appointments[10];
     Ward ward;
 
     int doctorCount;
@@ -108,7 +108,7 @@ public:
         };
         
 
-    void scheduleAppointment( Patient& patient, Doctor& doctor,string& date) {
+    void Appointmentschedule( Patient& patient, Doctor& doctor,string& date) {
         if (appointmentCount < 10) {
             appointments[appointmentCount++] = Appointment(patient, doctor, date);
         } else {
@@ -149,16 +149,16 @@ public:
         }
     }
 
-    void dischargePatientFromWard(Patient& patient) {
+    void dischargePatientFromWardToNEw(Patient& patient) {
         if (patient.admitted) {
             ward.dischargePatient();
             patient.admitted = false;
             cout << "Patient " << patient.name << " discharged from Ward " << patient.wardNumber << ".\n";
             patient.wardNumber = -1;
         } else {
-            cout << "Patient " << patient.name << " is not admitted to any ward.\n";
+            cout << "Patient the patient is discharge form now  " << patient.name << " is not admitted to any ward.\n";
         }
-    }
+    } 
 
     void displayAvailableDoctors(string& shift,string& day) {
         cout << "\nAVAILABLE DOCTERS:\n";
@@ -222,31 +222,32 @@ int main() {
         switch (choice) {
             case 1: {
                 string name, specialty, shift;
-                int fees;
+                int fee;
                 string unavailableDays[7];
-                int dayCount;
+                int day_Count;
                 char choice;
 	do{
-                cout << "Enter Doctor's Name: ";
+                cout << "Enter Your Doctor's Name: ";
                 getline(cin, name);
-                cout << "Enter Doctor's Specialty: ";
+                cout << "Enter Your Doctor's Specialty: ";
                 getline(cin, specialty);
-                cout << "Enter Doctor's Fees: ";
-                cin >> fees;
+                cout << "Enter Your Doctor's Fees: ";
+                cin >> fee;
                 cin.ignore(); // Clear the newline from buffer
                 cout << "Enter Doctor's Shift (morning/night): ";
                 getline(cin, shift);
 
                 cout << "Enter the number of days the doctor is unavailable: ";
-                cin >> dayCount;
+                cin >> day_Count;
                 cin.ignore(); // Clear the newline from buffer
 
                 cout << "Enter the unavailable days (e.g., Monday Tuesday): ";
-                for (int i = 0; i < dayCount; ++i) {
+                for (int i = 0; i < day_Count; ++i) {
                     getline(cin, unavailableDays[i]);
                 }
 
-                Doctor doctor(name, specialty, shift,fees, unavailableDays, dayCount);
+                Doctor doctor(name, specialty, shift,fee, unavailableDays, day_
+                    Count);
                 hospital.registerDoctor(doctor);
                 cout<<"\nDOCTOR REGISTER SUCCESSFULLY!";
                 cout<<"\n+---+---+---+---+---+---+---+---+---+---+\n";
