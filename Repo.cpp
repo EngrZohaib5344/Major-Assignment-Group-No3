@@ -380,12 +380,12 @@ int main() {
                 break;
             }
             case 0: {
-                cout<<"\nExiting Hospital Management System.\n";
-	      cout<<"\nGOOD BYE!\n";
+                cout<<"\nExiting the Hospital Management System.\n";
+	      cout<<"\nGOOD BYE FROM ME \n";
                 break;
             }
             default: {
-                cout << "\nInvalid choice. Please try again.\n";
+                cout << "\nInvalid choice. Please try it again.\n";
                 break;
             }
         }
