@@ -133,7 +133,7 @@ public:
             cout << "Patient " << patient.name << " is already admitted to Ward " << patient.wardNumber << ".\n";
             return;
         }
-
+    
         if (ward.getFreeWards() > 0) {
             ward.assignPatient();
             patient.admitted = true;
