@@ -312,12 +312,12 @@ int main() {
                 break;
             }
             case 6: {
-                string shift, day;
+                string shifts, days;
                 cout << "Enter Shift (morning/night): ";
-                getline(cin, shift);
+                getline(cin, shifts);
                 cout << "Enter Day: ";
-                getline(cin, day);
-                hospital.displayAvailableDoctors(shift, day);
+                getline(cin, days);
+                hospital.displayAvailableDoctors(shifts, days);
                 break;
             }
             case 7: {
