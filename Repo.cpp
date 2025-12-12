@@ -82,13 +82,15 @@ public:
 
     Hospital() : doctorCount(0), patientCount(0), appointmentCount(0) {}
 
-    void registerDoctor(Doctor& doctor) {
-        if (doctorCount < 10) {
-            doctors[doctorCount++] = doctor;
-        } else {
-            cout << "Cannot register more doctors. Limit reached.\n";
-        }
+    void registerDoctor(const Doctor& doctor) {
+    if (doctorCount < 10) {
+        doctors[doctorCount] = doctor;
+        doctorCount++;
+    } else {
+        cout << "Cannot register more doctors. Limit reached.\n";
     }
+}
+
 
     void registerPatient(const Patient& patient) {
         if (patientCount < 10) {
@@ -107,14 +109,17 @@ public:
     }
 
     void displayAppointments() const {
-        cout << "Appointments:\n";
-        for (int i = 0; i < appointmentCount; ++i) {
-            cout << "Date: " << appointments[i].date << "\n";
-            cout << "Patient: " << appointments[i].patient.name << "\n";
-            cout << "Doctor: " << appointments[i].doctor.name << " (Specialty: " << appointments[i].doctor.specialty << ")\n";
-            cout << "------------------------\n";
-        }
+    cout << "\n===== APPOINTMENTS LIST =====\n";
+    for (int i = 0; i < appointmentCount; ++i) {
+        cout << "\n--- Appointment #" << (i + 1) << " ---\n";
+        cout << "📅 Date       : " << appointments[i].date << "\n";
+        cout << "👤 Patient    : " << appointments[i].patient.name << "\n";
+        cout << "🩺 Doctor     : " << appointments[i].doctor.name << "\n";
+        cout << "   Specialty  : " << appointments[i].doctor.specialty << "\n";
     }
+    cout << "\n=============================\n";
+}
+
 
     int countAvailableWards() const {
         return ward.getFreeWards();
@@ -164,9 +169,13 @@ public:
             }
         }
     }
-    void prescribeMedicine(Patient& patient,  std::string& medicine) {
-        cout << "Prescribing " << medicine << " to patient " << patient.name << ".\n";
-    }
+    void prescribeMedicine(Patient& patient, std::string& medicine) {
+    cout << "\n=== Prescription Issued ===\n";
+    cout << "Patient Name : " << patient.name << "\n";
+    cout << "Medicine     : " << medicine << "\n";
+    cout << "===========================\n";
+}
+
     void getWardInfo() const {
         cout << "Total Wards: " << ward.total << "\n";
         cout << "Reserved Wards: " << ward.reserved << "\n";
