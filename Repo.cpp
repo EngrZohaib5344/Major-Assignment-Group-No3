@@ -92,13 +92,21 @@ public:
 }
 
 
-    void registerPatient(const Patient& patient) {
-        if (patientCount < 10) {
-            patients[patientCount++] = patient;
-        } else {
-            cout << "Cannot register more patients. Limit reached.\n";
-        }
-    }
+    class Hospital {
+        public:
+            void registerPatient(const Patient& patient) {
+                if (patientCount < 10) {
+                    patients[patientCount++] = patient;
+                } else {
+                    cout << "Cannot register more patients. Limit reached.\n";
+                }
+            }
+        
+        private:
+            Patient patients[10];
+            int patientCount = 0;
+        };
+        
 
     void scheduleAppointment( Patient& patient, Doctor& doctor,string& date) {
         if (appointmentCount < 10) {
@@ -169,6 +177,10 @@ public:
             }
         }
     }
+    void prescribeMedicine(Patient& patient,  std::string& medicine) {
+        cout << "Prescribing " << medicine << " to patient " << patient.name << ".\n";
+    }
+    void WardInfo() const {
     void prescribeMedicine(Patient& patient, std::string& medicine) {
     cout << "\n=== Prescription Issued ===\n";
     cout << "Patient Name : " << patient.name << "\n";
@@ -316,7 +328,7 @@ int main() {
                 break;
             }
             case 5: {
-                hospital.getWardInfo();
+                hospital.WardInfo();
                 break;
             }
             case 6: {
