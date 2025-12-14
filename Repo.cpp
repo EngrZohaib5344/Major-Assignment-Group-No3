@@ -204,18 +204,18 @@ int main() {
         cout<<"\n+-------------------------+\n";
     do{  
         cout<<"\n----+-----+-----+----+----+----+----+\n";
-        cout << "1. Register Doctor\n";
-        cout << "2. Register Patient\n";
-        cout << "3. Schedule Appointment\n";
-        cout << "4. View Appointments\n";
-        cout << "5. Number of Wards\n";
-        cout << "6. Available Doctors\n";
+        cout << "1. Register for Doctor\n";
+        cout << "2. Register for Patient\n";
+        cout << "3. Schedule to Appointment\n";
+        cout << "4. View to Appointments\n";
+        cout << "5. Number of the  Wards\n";
+        cout << "6. Available of of  Doctors\n";
         cout << "7. Prescribe Medicine\n";
         cout << "8. Admit Patient & Assign Ward to Patient\n";
         cout << "9. Discharge Patient & Discharge Patient from Ward\n";
         cout << "0. Exit\n";
         cout<<"\n---+--+---+---+---+--+--+--+---+---+--+---+----+---+--+--+\n";
-        cout << "Enter your choice: ";
+        cout << "Enter of your choice: ";
         cin >> choice;
         cin.ignore(); // Clear the newline from buffer
 
